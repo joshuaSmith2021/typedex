@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ name }}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Roboto"/>
+  <link rel="stylesheet" href="https://smith2021.github.io/hermes/w3.css"/>
+  <style>
+.main, .search {
+  font-family: Merriweather;
+}
+
+.main ul {
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
+}
+
+.search ul {
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+    
+.raised {
+  border: none;
+  border-radius: 2px;
+  position: relative;
+  height: 36px;
+  margin: 0;
+  min-width: 64px;
+  padding: 0 16px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  overflow: hidden;
+  outline: 0;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle;
+  font-family: Roboto;
+}
+  </style>
+</head>
+<body>
+  <div class="search w3-padding">
+    <div class="w3-row">
+      <div class="w3-col l11 m12 w3-padding-small">
+        <input type="text" class="w3-input w3-blue" id="search" placeholder="Search for Another Pokemon"/>
+        <ul id="filter" class="w3-light-grey w3-padding" hidden></ul>
+      </div>
+      <div class="w3-col l1 m12 w3-padding-small">
+        <a id="newLink" href="/pokemon/{{ name }}"><div class="raised w3-red">Search!</div></a>
+      </div>
+    </div>
+  </div>
+  <div class="main w3-padding">
+    <img src="{{ sprite_url }}"/>
+    <h2>{{ name }}</h2>
+    <h4>Types:</h4>
+    <ul>
+      {% for type in types %}
+        <li>{{ type }}</li>
+      {% endfor %}
+    </ul>
+    <br>
+    <h4>Weakness/Resistance</h4>
+    <div class="wrs">
+      <ul>
+      {% for message in wrs %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    <h6>Page served in {{ run_time }} seconds.</h6>
+  </div>
+  <script>
+document.getElementById('search').addEventListener('keyup', function () {
+  document.getElementById('newLink').href = '/pokemon/' + this.value;
+});
+  </script>
+</body>
+</html>
