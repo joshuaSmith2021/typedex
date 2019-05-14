@@ -3,5 +3,8 @@ A simple [Flask](https://github.com/pallets/flask) application that uses [PokeAp
 [Pokebase](https://github.com/PokeAPI/pokebase) to show Pokemon and their in-game weaknesses/resistances. Just a fun little
 project of mine to gain experience with Flask/Full stack Python. When running it, set the FLASK_APP to main.py.
 
+![A screenshot of Mewtwo's page](https://raw.githubusercontent.com/joshuaSmith2021/typedex/master/images/mewtwo-page.png)
+A screenshot of Mewtwo's page
+
 Aside from Flask of cource, its only dependency is pokebase, which is super easy to install. Just use
 `pip install pokebase`
